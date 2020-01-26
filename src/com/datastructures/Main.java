@@ -9,7 +9,6 @@ public class Main {
 
         /*** LinkedList test ***/
         LinkedList linkedList = new LinkedList();
-
         linkedList.setHead(new Node(1));
 
         Node node1 = new Node(3);
