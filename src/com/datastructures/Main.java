@@ -9,16 +9,19 @@ public class Main {
 
         /*** LinkedList test ***/
         LinkedList linkedList = new LinkedList();
-        linkedList.setHead(new Node(1));
+        linkedList.append(1);
+        linkedList.append(3);
+        linkedList.append(5);
+        linkedList.append(7);
 
-        Node node1 = new Node(3);
-        Node node2 = new Node(5);
-        Node node3 = new Node(7);
+        System.out.println("After append : ");
+        linkedList.printAll();
+        linkedList.prepend(0);
+        System.out.println("After prepend : ");
+        linkedList.printAll();
 
-        linkedList.getHead().setNext(node1);
-        node1.setNext(node2);
-        node2.setNext(node3);
-
+        linkedList.deleteWithValue(5);
+        System.out.println("After deletingWithValue : ");
         linkedList.printAll();
     }
 }
