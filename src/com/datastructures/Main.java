@@ -1,7 +1,7 @@
 package com.datastructures;
 
 import com.datastructures.linkedlist.LinkedList;
-import com.datastructures.linkedlist.Node;
+import com.datastructures.stack.Stack;
 
 public class Main {
 
@@ -23,5 +23,20 @@ public class Main {
         linkedList.deleteWithValue(5);
         System.out.println("After deletingWithValue : ");
         linkedList.printAll();
+
+        /*** Stack test ***/
+
+        Stack stack = new Stack();
+        stack.push(1);
+        System.out.println("Top of the Stack : " + stack.peek());
+        stack.push(2);
+        System.out.println("Top of the Stack : " + stack.peek());
+        stack.push(3);
+        System.out.println("Top of the Stack : " + stack.peek());
+        stack.push(4);
+        System.out.println("Top of the Stack : " + stack.peek());
+
+        System.out.println("Pop operation : " + stack.pop());
+
     }
 }

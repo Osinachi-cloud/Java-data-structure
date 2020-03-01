@@ -1,4 +1,4 @@
-package com.datastructures.linkedlist;
+package com.datastructures;
 
 public class Node{
     private int data;

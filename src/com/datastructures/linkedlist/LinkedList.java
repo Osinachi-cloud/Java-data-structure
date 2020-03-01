@@ -1,5 +1,8 @@
 package com.datastructures.linkedlist;
 
+import com.datastructures.Node;
+
+// LinkedList Implementation
 public class LinkedList {
 
     private Node head;
