@@ -1,6 +1,7 @@
 package com.datastructures;
 
 import com.datastructures.linkedlist.LinkedList;
+import com.datastructures.queue.Queue;
 import com.datastructures.stack.Stack;
 
 public class Main {
@@ -26,17 +27,32 @@ public class Main {
 
         /*** Stack test ***/
 
-        Stack stack = new Stack();
-        stack.push(1);
-        System.out.println("Top of the Stack : " + stack.peek());
-        stack.push(2);
-        System.out.println("Top of the Stack : " + stack.peek());
-        stack.push(3);
-        System.out.println("Top of the Stack : " + stack.peek());
-        stack.push(4);
-        System.out.println("Top of the Stack : " + stack.peek());
-
+        Stack stack = new Stack(3);
+        try {
+            stack.push(1);
+            System.out.println("Top of the Stack : " + stack.peek());
+            stack.push(2);
+            System.out.println("Top of the Stack : " + stack.peek());
+            stack.push(3);
+            System.out.println("Top of the Stack : " + stack.peek());
+            stack.push(4);
+            System.out.println("Top of the Stack : " + stack.peek());
+        } catch (StackOverflowError ex) {
+            System.out.println(ex.getMessage());
+        }
         System.out.println("Pop operation : " + stack.pop());
+
+
+        /*** Queue test ***/
+        Queue queue = new Queue();
+        queue.add(70);
+        queue.add(4);
+        queue.add(8);
+        queue.add(9);
+        queue.add(20);
+        while (!queue.isEmpty()) {
+            System.out.println(queue.remove());
+        }
 
     }
 }
