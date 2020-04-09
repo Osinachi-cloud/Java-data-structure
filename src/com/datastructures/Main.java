@@ -1,11 +1,10 @@
 package com.datastructures;
 
-import com.datastructures.hashmap.MyHashMap;
+import com.datastructures.hashmap.HashMap;
 import com.datastructures.linkedlist.LinkedList;
 import com.datastructures.queue.Queue;
 import com.datastructures.stack.Stack;
 
-import java.util.HashMap;
 
 public class Main {
 
@@ -45,7 +44,6 @@ public class Main {
         }
         System.out.println("Pop operation : " + stack.pop());
 
-        HashMap<String, Integer> map = new HashMap<>();
         /*** Queue test ***/
         Queue queue = new Queue();
         queue.add(70);
@@ -57,7 +55,7 @@ public class Main {
             System.out.println(queue.remove());
         }
         System.out.println("***MyHashMap***");
-        MyHashMap hashMap = new MyHashMap();
+        HashMap hashMap = new HashMap();
         hashMap.put("1", "1");
         hashMap.put("2", "2");
         System.out.println(hashMap.get("1"));            // returns 1
@@ -65,6 +63,10 @@ public class Main {
         System.out.println(hashMap.get("3"));            // returns null (not found)
         hashMap.put("2", "1");          // update the existing value
         System.out.println(hashMap.get("2"));            // returns 1
+        hashMap.remove("2");
+        System.out.println(hashMap.get("2"));            // returns null
+        hashMap.put("2", "3");          // update the existing value
+        System.out.println(hashMap.get("2"));            // returns 3
 
     }
 }
