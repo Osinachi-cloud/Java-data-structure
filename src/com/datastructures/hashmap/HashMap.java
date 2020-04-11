@@ -82,6 +82,9 @@ public class HashMap {
         }
     }
 
+    public boolean hasKey(String key) {
+        return this.get(key) != null;
+    }
 
     private int calculateIndex(String key) {
         return key.hashCode() % this.capacity;

@@ -67,6 +67,7 @@ public class Main {
         System.out.println(hashMap.get("2"));            // returns null
         hashMap.put("2", "3");          // update the existing value
         System.out.println(hashMap.get("2"));            // returns 3
+        System.out.println(hashMap.hasKey("1"));
 
     }
 }
