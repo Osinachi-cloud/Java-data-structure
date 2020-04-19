@@ -77,6 +77,59 @@ public class BinaryTree<X extends Comparable> {
         return null;
     }
 
+    public boolean delete(X item) {
+        boolean deleted = false;
+        Node currentNode = getNode(item);
+        if (currentNode == null) {
+            deleted = false;
+        } else {
+            // We have found the node to be deleted.
+            if (currentNode.getLeft() == null && currentNode.getRight() == null) {
+                // No Child Case
+                unlink(currentNode, null);
+                deleted = true;
+            } else if (currentNode.getLeft() == null && currentNode.getRight() != null) {
+                // One Right Child Case
+                unlink(currentNode, currentNode.getRight());
+                deleted = true;
+            } else if (currentNode.getLeft() != null && currentNode.getRight() == null) {
+                // One Left Child Case
+                unlink(currentNode, currentNode.getLeft());
+                deleted = true;
+            } else {
+                // Both Child Case
+                Node child = currentNode.getLeft();
+                while (child.getRight() != null && child.getLeft() != null) {
+                    child = child.getRight();
+                }
+                child.getParent().setRight(null);
+                child.setLeft(currentNode.getLeft());
+                child.setRight(currentNode.getRight());
+                unlink(currentNode, child);
+                deleted = true;
+
+            }
+        }
+        if (deleted) {
+            this.size--;
+        }
+        return deleted;
+    }
+
+    private void unlink(Node currentNode, Node newNode) {
+
+        // if this is the root node, we replace that a little differently
+        if (currentNode == this.root) {
+            newNode.setLeft(currentNode.getLeft());
+            newNode.setRight(currentNode.getRight());
+            this.root = newNode;
+        } else if (currentNode.getParent().getRight() == currentNode) {
+            currentNode.getParent().setRight(newNode);
+        } else {
+            currentNode.getParent().setLeft(newNode);
+        }
+    }
+
 
     private class Node {
 
