@@ -99,9 +99,11 @@ public class BinaryTree<X extends Comparable> {
             } else {
                 // Both Child Case
                 Node child = currentNode.getLeft();
-                while (child.getRight() != null && child.getLeft() != null) {
+                while (child.getRight() != null) {
                     child = child.getRight();
                 }
+                // We have the right most leaf node.
+                // We can swap the current node with this node
                 child.getParent().setRight(null);
                 child.setLeft(currentNode.getLeft());
                 child.setRight(currentNode.getRight());
