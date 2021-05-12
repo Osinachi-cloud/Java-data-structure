@@ -83,20 +83,29 @@ public class BinaryTree<X extends Comparable> {
         if (currentNode == null) {
             deleted = false;
         } else {
+
             // We have found the node to be deleted.
-            if (currentNode.getLeft() == null && currentNode.getRight() == null) {
-                // No Child Case
+            if (noChildExist(currentNode)) { // No Child Case
+            
                 unlink(currentNode, null);
                 deleted = true;
-            } else if (currentNode.getLeft() == null && currentNode.getRight() != null) {
-                // One Right Child Case
+            } 
+            
+            else if (rightChildExist(currentNode)) { // One Right Child Case                
+                
                 unlink(currentNode, currentNode.getRight());
                 deleted = true;
-            } else if (currentNode.getLeft() != null && currentNode.getRight() == null) {
-                // One Left Child Case
+            
+            } 
+            
+            else if (leftChildExist(currentNode)) { // One Left Child Case
+            
                 unlink(currentNode, currentNode.getLeft());
                 deleted = true;
-            } else {
+            
+            } 
+            
+            else {
                 // Both Child Case
                 Node child = currentNode.getLeft();
                 while (child.getRight() != null) {
@@ -119,17 +128,31 @@ public class BinaryTree<X extends Comparable> {
     }
 
     private void unlink(Node currentNode, Node newNode) {
-
+        if(currentNode != null){
         // if this is the root node, we replace that a little differently
-        if (currentNode == this.root) {
-            newNode.setLeft(currentNode.getLeft());
-            newNode.setRight(currentNode.getRight());
-            this.root = newNode;
-        } else if (currentNode.getParent().getRight() == currentNode) {
-            currentNode.getParent().setRight(newNode);
-        } else {
-            currentNode.getParent().setLeft(newNode);
+            if (currentNode == this.root && newNode!=null) {
+                newNode.setLeft(currentNode.getLeft());
+                newNode.setRight(currentNode.getRight());
+                this.root = newNode;
+            } else if (currentNode.getParent().getRight() == currentNode) {
+                currentNode.getParent().setRight(newNode);
+            } else {
+                currentNode.getParent().setLeft(newNode);
+            }
         }
+    }
+
+    
+    private boolean leftChildExist(Node currentNode) {
+        return currentNode.getLeft() != null && currentNode.getRight() == null;
+    }
+
+    private boolean rightChildExist(Node currentNode) {
+        return currentNode.getLeft() == null && currentNode.getRight() != null;
+    }
+
+    private boolean noChildExist(Node currentNode) {
+        return currentNode.getLeft() == null && currentNode.getRight() == null;
     }
 
 

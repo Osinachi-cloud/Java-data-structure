@@ -76,8 +76,11 @@ public class HashMap {
                 hashMap[index] = null;
             else {
                 LinkedList prevNode = findNode(hashMap[index], key);
-                if (prevNode.next != null && prevNode.next.key.equals(key))
+                if (prevNode!=null 
+                &&  prevNode.next != null 
+                &&  prevNode.next.key.equals(key)){
                     prevNode.next = prevNode.next.next;
+                }
             }
         }
     }

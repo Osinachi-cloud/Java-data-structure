@@ -1,5 +1,6 @@
 package com.datastructures;
 
+import com.datastructures.arraylist.ArrayList;
 import com.datastructures.hashmap.HashMap;
 import com.datastructures.linkedlist.LinkedList;
 import com.datastructures.queue.Queue;
@@ -10,7 +11,53 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /*** LinkedList test ***/
+        System.out.println("ArrayList TEST : ");
+
+        ArrayList<String> myList = new ArrayList<>();
+
+        myList.add("Me");
+        myList.add("Ze");
+        myList.add("Ah");
+        myList.add("Mu");    
+        myList.add("Ay");
+        myList.add("Or");
+        myList.add("Ay");
+        myList.add("Mü");
+        myList.add("Kı");
+        myList.add("Ar");
+        myList.add("Al");
+        myList.add("Me");
+        myList.add("Ze");
+        myList.add("Ah");
+        myList.add("Mu");    
+        myList.add("Ay");
+        myList.add("Or");
+        myList.add("Ay");
+        myList.add("Mü");
+        myList.add("Kı");
+        myList.add("Ar");
+        myList.add("Al");
+        myList.add("Me");
+        myList.add("Ze");
+        myList.add("Ah");
+        myList.add("Mu");    
+        myList.add("Ay");
+        myList.add("Or");
+        myList.add("Ay");
+        myList.add("Mü");
+        myList.add("Kı");
+        myList.add("Ar");
+        myList.add("Al");
+
+        System.out.println("myList second index before remove: " + myList.get(2));
+
+        myList.remove(2);
+
+        System.out.println("myList second index after remove : " + myList.get(2));
+
+
+
+      /*  System.out.println("LinkedList TEST : ");
         LinkedList linkedList = new LinkedList();
         linkedList.append(1);
         linkedList.append(3);
@@ -27,8 +74,7 @@ public class Main {
         System.out.println("After deletingWithValue : ");
         linkedList.printAll();
 
-        /*** Stack test ***/
-
+        System.out.println("Stack TEST : ");
         Stack stack = new Stack(3);
         try {
             stack.push(1);
@@ -44,7 +90,7 @@ public class Main {
         }
         System.out.println("Pop operation : " + stack.pop());
 
-        /*** Queue test ***/
+        System.out.println("Queue TEST : ");
         Queue queue = new Queue();
         queue.add(70);
         queue.add(4);
@@ -54,7 +100,7 @@ public class Main {
         while (!queue.isEmpty()) {
             System.out.println(queue.remove());
         }
-        System.out.println("***MyHashMap***");
+        System.out.println("HashMap TEST : ");
         HashMap hashMap = new HashMap();
         hashMap.put("1", "1");
         hashMap.put("2", "2");
@@ -68,6 +114,7 @@ public class Main {
         hashMap.put("2", "3");          // update the existing value
         System.out.println(hashMap.get("2"));            // returns 3
         System.out.println(hashMap.hasKey("1"));
+        */
 
     }
 }
